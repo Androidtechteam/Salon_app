@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/splash_screen">
+
+    <fragment
+        android:id="@+id/splash_screen"
+        android:name="com.lnd.salon.ui.SplashScreenFragment"
+        android:label="Splash screen"
+        tools:layout="@layout/fragment_splash_screen">
+
+        <action
+            android:id="@+id/action_splash_screen_to_login_screen"
+            app:destination="@id/login_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_screen"
+        android:name="com.lnd.salon.ui.LoginFragment"
+        android:label="Login Screen"
+        tools:layout="@layout/fragment_login">
+
+
+        <action
+            android:id="@+id/action_login_screen_to_signup_screen"
+            app:destination="@id/signup_screen" />
+        <action
+            android:id="@+id/action_login_screen_to_dashboard_screen"
+            app:destination="@id/dashboard_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signup_screen"
+        android:name="com.lnd.salon.ui.SignUpFragment"
+        tools:layout="@layout/fragment_sign_up"
+        android:label="Signup screen">
+
+        <action
+            android:id="@+id/action_signup_screen_to_dashboard_screen"
+            app:destination="@id/dashboard_screen" />
+        <action
+            android:id="@+id/action_signup_screen_to_login_screen"
+            app:destination="@id/login_screen" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/dashboard_screen"
+        android:name="com.lnd.salon.ui.DashBoardFragment"
+        android:label="DashBoard Screen"
+        tools:layout="@layout/fragment_dash_board">
+
+    </fragment>
+
+
+</navigation>

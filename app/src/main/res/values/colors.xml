@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#F5F5F5</color>
+    <color name="gray">#F7F9FA</color>
+    <color name="grayy">#6c757d</color>
+    <color name="color_light_primary">#F6F7FB</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="menu_icon_color">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+
+    <color name="red">#FF0000</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="violet">#9400D3</color>
+    <color name="indigo">#4B0082</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="orange">#FF7F00</color>
+
+    <color name="text_grey">#575252</color>
+    <color name="background_color">#DAD5D5</color>
+
+    <color name="image_tint">#5E889E</color>
+
+    <color name="Beau_Blue">#EFF2F5</color>
+    <color name="Dark_Sky_Blue">#91BAD6</color>
+    <color name="Moonstone_Blue">#73A5C6</color>
+    <color name="Cyan_Azure">#528AAE</color>
+    <color name="Metallic_Blue">#2E5984</color>
+    <color name="Rainbow_Indigo">#1E3F66</color>
+
+    <!--menu items-->
+    <color name="one">#dd6342</color>
+    <color name="two">#e8dab2</color>
+    <color name="three">#4f6d7a</color>
+    <color name="four">#c0d6df</color>
+    <color name="five">#984076</color>
+    <color name="six">#FE9677</color>
+
+    <color name="no_of_app">#797EF6</color>
+    <color name="cibil_cleared">#4ADEDE</color>
+    <color name="sanctioned">#1AA7EC</color>
+    <color name="disbursed">#1E2F97</color>
+</resources>
