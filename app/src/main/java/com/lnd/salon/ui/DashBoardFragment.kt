@@ -5,17 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.lnd.salon.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.lnd.salon.adapter.ServicesAdapter
+import com.lnd.salon.databinding.FragmentDashBoardBinding
 
 
 class DashBoardFragment : Fragment() {
 
+    lateinit var binding: FragmentDashBoardBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dash_board, container, false)
+        binding = FragmentDashBoardBinding.inflate(layoutInflater)
+        val myImageNameList =
+            arrayOf("1", "2", "3", "4", "5")
+        val servicesAdapter = ServicesAdapter(requireContext(),myImageNameList)
+        binding.rvServices.adapter = servicesAdapter
+        binding.rvServices.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        return binding.root
     }
 
 
