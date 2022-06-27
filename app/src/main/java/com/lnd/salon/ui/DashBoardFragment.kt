@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnd.salon.adapter.ServicesAdapter
 import com.lnd.salon.databinding.FragmentDashBoardBinding
@@ -25,6 +26,12 @@ class DashBoardFragment : Fragment() {
         val servicesAdapter = ServicesAdapter(requireContext(),myImageNameList)
         binding.rvServices.adapter = servicesAdapter
         binding.rvServices.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
+
+        binding.btAppointment.setOnClickListener {
+            val action = DashBoardFragmentDirections.actionDashboardScreenToSearchSalonFragment()
+            Navigation.findNavController(binding.view).navigate(action)
+        }
         return binding.root
     }
 

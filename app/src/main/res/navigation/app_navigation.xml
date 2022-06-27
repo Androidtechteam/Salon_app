@@ -52,7 +52,21 @@
         android:label="DashBoard Screen"
         tools:layout="@layout/fragment_dash_board">
 
+        <action
+            android:id="@+id/action_dashboard_screen_to_search_salon_fragment"
+            app:destination="@id/search_salon_fragment" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/search_salon_fragment"
+        android:name="com.lnd.salon.ui.SearchFragment"
+        tools:layout="@layout/fragment_search"
+        android:label="Search Screen">
+
+
+    </fragment>
+
 
 
 </navigation>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/edit_text_background"
+    android:layout_margin="@dimen/_3sdp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/im_shop_item"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_launcher_foreground"
+        android:background="@drawable/edit_text_background"
+        android:layout_margin="@dimen/_2sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sdp"
+        android:text="Jack Salon"
+        android:layout_margin="@dimen/_3sdp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/im_shop_item"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_margin="@dimen/_3sdp"
+        android:text="6391 Elgin St.Cellna,Delaware"
+        android:textColor="@color/grayy"
+        app:layout_constraintStart_toEndOf="@+id/im_shop_item"
+        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/im_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_star_rate_24"
+        app:layout_constraintStart_toEndOf="@+id/im_shop_item"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"
+        android:layout_margin="@dimen/_5sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_ratting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_margin="@dimen/_5sdp"
+        android:text="5.1"
+        android:gravity="center"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toEndOf="@+id/im_star"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dummy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:fontFamily="@font/poppins_regular"
+        android:text="5"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toEndOf="@+id/tv_ratting"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/im_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_location_on_24"
+        app:layout_constraintStart_toEndOf="@+id/tv_dummy"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"
+        android:layout_margin="@dimen/_5sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_kilometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_margin="@dimen/_5sdp"
+        android:text="15 Km"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/im_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_25sdp"
+        android:background="@drawable/my_button"
+        android:text="Book"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_5sdp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
