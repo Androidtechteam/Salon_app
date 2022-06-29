@@ -23,11 +23,12 @@
 
     <color name="red">#FF0000</color>
     <color name="green">#008000</color>
-    <color name="blue">#0000FF</color>
+    <color name="blue">#6d5ae7</color>
     <color name="violet">#9400D3</color>
     <color name="indigo">#4B0082</color>
     <color name="yellow">#FFFF00</color>
     <color name="orange">#FF7F00</color>
+    <color name="grey"> #bcbbc0</color>
 
     <color name="text_grey">#575252</color>
     <color name="background_color">#DAD5D5</color>

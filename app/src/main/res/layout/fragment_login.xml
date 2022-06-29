@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -80,6 +81,7 @@
             android:background="@drawable/edit_text_background"
             android:drawableStart="@drawable/email"
             android:fontFamily="@font/poppins_regular"
+            android:drawablePadding="@dimen/_5sdp"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingStart="@dimen/_10sdp"
@@ -96,6 +98,7 @@
             android:background="@drawable/edit_text_background"
             android:drawableStart="@drawable/padlock"
             android:fontFamily="@font/poppins_regular"
+            android:drawablePadding="@dimen/_5sdp"
             android:hint="Password"
             android:inputType="textPassword"
             android:paddingStart="@dimen/_10sdp"
