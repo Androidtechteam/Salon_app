@@ -5,9 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -25,6 +27,7 @@
             android:gravity="center"
             android:layout_weight="2"/>
         <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
@@ -39,6 +42,7 @@
                 android:layout_margin="10dp"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
@@ -96,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/card_upcoming">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -170,15 +175,16 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_centerInParent="true"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:background="@drawable/iv_bg2"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
                     android:padding="@dimen/_5sdp"
+                    android:textColor="@color/black"
                     android:text="Cancel" />
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

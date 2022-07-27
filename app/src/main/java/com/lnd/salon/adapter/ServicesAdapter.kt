@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.lnd.salon.R
+import com.lnd.salon.presentation.ui.DashBoardFragmentDirections
 
 class ServicesAdapter(requireContext: Context, val myImageNameList: Array<String>) :
     RecyclerView.Adapter<ServicesAdapter.ViewHolder>() {
@@ -28,6 +30,10 @@ class ServicesAdapter(requireContext: Context, val myImageNameList: Array<String
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        holder.image.setOnClickListener{
+            val action = DashBoardFragmentDirections.actionDashboardScreenToYourAppointment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

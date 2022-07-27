@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_dashboard_screen_to_search_salon_fragment"
             app:destination="@id/search_salon_fragment" />
+        <action
+            android:id="@+id/action_dashboard_screen_to_your_appointment"
+            app:destination="@id/appointment_fragment" />
     </fragment>
 
 
@@ -63,6 +66,15 @@
         android:name="com.lnd.salon.presentation.ui.SearchFragment"
         tools:layout="@layout/fragment_search"
         android:label="Search Screen">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointment_fragment"
+        android:name="com.lnd.salon.presentation.ui.YourAppointmentFragment"
+        tools:layout="@layout/fragment_your_appointment"
+        android:label="Your Fragment">
 
 
     </fragment>

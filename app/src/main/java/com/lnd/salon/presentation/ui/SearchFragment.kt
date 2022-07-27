@@ -25,6 +25,10 @@ class SearchFragment : Fragment() {
 
         loadSalonService()
 
+        populateArtist()
+
+        loadBottomList()
+
         return binding.root
     }
 
@@ -33,9 +37,7 @@ class SearchFragment : Fragment() {
             arrayOf("All", "Haircuts", "Makeup", "massage", "Skin care")
         val salonServiceAdapter = SalonServiceAdapter(requireContext(),myNameList,object : SalonServiceAdapter.ItemClickListener{
             override fun onItemClick(view: View?, position: Int) {
-                populateArtist()
 
-                loadBottomList()
             }
         })
         binding.rvList.adapter = salonServiceAdapter
@@ -56,7 +58,7 @@ class SearchFragment : Fragment() {
         })
         binding.rvFindResult.adapter = finalResultAdapter
         binding.rvFindResult.layoutManager = LinearLayoutManager(requireContext(),
-            LinearLayoutManager.HORIZONTAL,false)
+            LinearLayoutManager.VERTICAL,false)
     }
 
     private fun populateArtist() {
