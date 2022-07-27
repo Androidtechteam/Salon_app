@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
 
             if (validations()) {
                 val `object` = JSONObject()
-                `object`.put("email", binding.etEmial.text.toString())
+                `object`.put("email", binding.etEmail.text.toString())
                 `object`.put("password", binding.etPassword.text.toString())
                 viewModel.getLoginResponse(
                     requestBody = RequestBody.create(
@@ -97,7 +97,7 @@ class LoginFragment : Fragment() {
 
     private fun validations(): Boolean {
         try {
-            if (TextUtils.isEmpty(binding.etEmial.text.toString())) {
+            if (TextUtils.isEmpty(binding.etEmail.text.toString())) {
                 CommonUtils.toast(requireContext(), "Please enter email")
                 return false
             } else if (TextUtils.isEmpty(binding.etPassword.text.toString())) {

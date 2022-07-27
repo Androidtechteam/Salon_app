@@ -5,10 +5,37 @@ import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiServices {
     @Keep
-    @POST("/v3/api-docs/authenticateMobile")
+    @POST("/users/signin")
     suspend fun verifyLogin(@Body requestBody: RequestBody?): Response<ResponseBody>
+
+    @Keep
+    @POST("/users")
+    suspend fun registration(@Body requestBody: RequestBody?): Response<ResponseBody>
+
+    @Keep
+    @GET("/services")
+    suspend fun services(
+        @Query("page") page: String,
+        @Query("size") size: String
+    ): Response<ResponseBody>
+
+    @Keep
+    @GET("/branches")
+    suspend fun branches(
+        @Query("page") page: String,
+        @Query("size") size: String
+    ): Response<ResponseBody>
+
+    @Keep
+    @GET("/coupons")
+    suspend fun coupons(
+        @Query("page") page: String,
+        @Query("size") size: String
+    ): Response<ResponseBody>
 }

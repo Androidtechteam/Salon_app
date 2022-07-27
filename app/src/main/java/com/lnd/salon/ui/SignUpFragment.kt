@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.lnd.salon.R
 import com.lnd.salon.databinding.FragmentSignUpBinding
+import com.lnd.salon.presentation.ui.SignUpFragmentDirections
 
 class SignUpFragment : Fragment() {
 

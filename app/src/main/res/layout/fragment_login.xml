@@ -75,7 +75,7 @@
 
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_mobilenum"
+            android:id="@+id/et_Email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:background="@drawable/edit_text_background"

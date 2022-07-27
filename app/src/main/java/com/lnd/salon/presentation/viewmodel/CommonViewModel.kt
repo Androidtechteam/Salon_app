@@ -20,4 +20,10 @@ class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCa
             response = commonUseCase.verifyLogin(requestBody)
         }
     }
+
+    fun registration(requestBody: RequestBody){
+        viewModelScope.launch {
+            response = commonUseCase.registration(requestBody)
+        }
+    }
 }
