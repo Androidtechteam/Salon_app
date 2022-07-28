@@ -16,4 +16,8 @@ interface CommonRepository {
 
     suspend fun coupons(page:String,count:String): Flow<Resource<ResponseBody>>
 
+    suspend fun categories():Flow<Resource<ResponseBody>>
+
+    suspend fun beautyTips():Flow<Resource<ResponseBody>>
+
 }

@@ -7,8 +7,16 @@ import okhttp3.ResponseBody
 
 interface CommonUseCase {
     suspend fun verifyLogin(requestBody: RequestBody): Flow<Resource<ResponseBody>>
+
     suspend fun registration(requestBody: RequestBody): Flow<Resource<ResponseBody>>
+
     suspend fun services(page: String, count: String): Flow<Resource<ResponseBody>>
+
     suspend fun branches(page: String, count: String): Flow<Resource<ResponseBody>>
+
     suspend fun coupons(page: String, count: String): Flow<Resource<ResponseBody>>
+
+    suspend fun categories():Flow<Resource<ResponseBody>>
+
+    suspend fun beautyTips():Flow<Resource<ResponseBody>>
 }

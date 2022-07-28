@@ -22,4 +22,10 @@ class CommonUseCaseImpl @Inject constructor(private val commonRepository: Common
 
     override suspend fun coupons(page: String, count: String) =
         commonRepository.branches(page, count)
+
+    override suspend fun categories() =
+        commonRepository.categories()
+
+    override suspend fun beautyTips() =
+        commonRepository.beautyTips()
 }

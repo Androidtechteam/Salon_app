@@ -74,5 +74,31 @@ class CommonRemoteDataSourceImpl @Inject constructor(private val apiServices: Ap
         }
     }
 
+    override suspend fun categories(): ResponseBody {
+        try{
+            val responseBody = apiServices.categories()
+            return if(responseBody.isSuccessful){
+                responseBody.body() ?: throw Exception("No data found")
+            }else{
+                throw Exception(responseBody.errorBody()?.string())
+            }
+        }catch (ex:Exception){
+            throw Exception(ex.localizedMessage)
+        }
+    }
+
+    override suspend fun beautyTips(): ResponseBody {
+        try{
+            val responseBody = apiServices.beautyTips()
+            return if(responseBody.isSuccessful){
+                responseBody.body() ?: throw Exception("No data found")
+            }else{
+                throw Exception(responseBody.errorBody()?.string())
+            }
+        }catch (ex:Exception){
+            throw Exception(ex.localizedMessage)
+        }
+    }
+
 
 }

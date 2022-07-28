@@ -19,6 +19,10 @@ interface ApiServices {
     suspend fun registration(@Body requestBody: RequestBody?): Response<ResponseBody>
 
     @Keep
+    @GET("/categories")
+    suspend fun categories(): Response<ResponseBody>
+
+    @Keep
     @GET("/services")
     suspend fun services(
         @Query("page") page: String,
@@ -38,4 +42,8 @@ interface ApiServices {
         @Query("page") page: String,
         @Query("size") size: String
     ): Response<ResponseBody>
+
+    @Keep
+    @GET("/beauty-tips")
+    suspend fun beautyTips(): Response<ResponseBody>
 }

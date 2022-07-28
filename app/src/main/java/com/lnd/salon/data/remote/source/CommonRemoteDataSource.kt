@@ -14,4 +14,8 @@ interface CommonRemoteDataSource {
     suspend fun branches(page: String, count: String): ResponseBody
 
     suspend fun coupons(page: String, count: String): ResponseBody
+
+    suspend fun categories():ResponseBody
+
+    suspend fun beautyTips():ResponseBody
 }

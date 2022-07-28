@@ -26,4 +26,29 @@ class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCa
             response = commonUseCase.registration(requestBody)
         }
     }
+
+    fun categories(){
+        viewModelScope.launch {
+            response = commonUseCase.categories()
+        }
+    }
+
+    fun coupons(page: String, count: String){
+        viewModelScope.launch {
+            response = commonUseCase.coupons(page,count)
+        }
+    }
+
+    fun branches(page: String, count: String){
+        viewModelScope.launch {
+            response = commonUseCase.branches(page,count)
+        }
+    }
+
+    fun beautyTips(){
+        viewModelScope.launch {
+            response = commonUseCase.beautyTips()
+        }
+    }
+
 }
