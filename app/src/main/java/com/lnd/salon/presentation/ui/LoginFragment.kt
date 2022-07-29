@@ -2,18 +2,23 @@ package com.lnd.salon.presentation.ui
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.lnd.salon.databinding.FragmentLoginBinding
 import com.lnd.salon.presentation.common.CommonUtils
+import com.lnd.salon.presentation.common.SharedPref
 import com.lnd.salon.presentation.common.StatusCalled
+import com.lnd.salon.presentation.models.LoginResponseModel
 import com.lnd.salon.presentation.viewmodel.CommonViewModel
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -70,22 +75,37 @@ class LoginFragment : Fragment() {
                                     StandardCharsets.UTF_8
                                 )
                                 val json = JSONObject(convertedInputStream)
-                                if(!json.getString("status").equals("error",true)) {
+
+
+                                if (!json.getString("status").equals("error", true)) {
 //                                    val jsonObject = json.getJSONObject("data")
-                                    CommonUtils.toast(requireContext(),json.toString())
+                                    val moshi = Moshi.Builder()
+                                        .add(KotlinJsonAdapterFactory())
+                                        .build()
+
+                                    val jsonAdapter: JsonAdapter<LoginResponseModel> =
+                                        moshi.adapter(LoginResponseModel::class.java)
+
+                                    val loginResponseModel: LoginResponseModel? =
+                                        jsonAdapter.fromJson(convertedInputStream)
+
+                                    SharedPref.setApiToken(requireContext(),loginResponseModel?.oauthToken)
+
+                                    CommonUtils.toast(requireContext(), json.toString())
                                     val action = LoginFragmentDirections.actionLoginScreenToDashboardScreen()
                                     Navigation.findNavController(binding.root).navigate(action)
-                                }else{
-                                    CommonUtils.toast(requireContext(),json.getString("message"))
+
+                                } else {
+                                    CommonUtils.toast(requireContext(), json.getString("message"))
                                 }
 //
                             }
                             StatusCalled.ERROR -> {
-                                CommonUtils.toast(requireContext(),it.message)
+                                CommonUtils.toast(requireContext(), it.message)
 
                             }
                             StatusCalled.LOADING -> {
-                                CommonUtils.toast(requireContext(),"Loading...")
+                                CommonUtils.toast(requireContext(), "Loading...")
                             }
                         }
                     }
