@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
 
             if (validations()) {
                 val `object` = JSONObject()
-                `object`.put("email", binding.etEmail.text.toString())
+                `object`.put("emailId", binding.etEmail.text.toString())
                 `object`.put("password", binding.etPassword.text.toString())
                 viewModel.getLoginResponse(
                     requestBody = RequestBody.create(
@@ -77,8 +77,9 @@ class LoginFragment : Fragment() {
                                 val json = JSONObject(convertedInputStream)
 
 
-                                if (!json.getString("status").equals("error", true)) {
+                                //if (!json.getString("status").equals("error", true)) {
 //                                    val jsonObject = json.getJSONObject("data")
+
                                     val moshi = Moshi.Builder()
                                         .add(KotlinJsonAdapterFactory())
                                         .build()
@@ -91,13 +92,13 @@ class LoginFragment : Fragment() {
 
                                     SharedPref.setApiToken(requireContext(),loginResponseModel?.oauthToken)
 
-                                    CommonUtils.toast(requireContext(), json.toString())
+                                    CommonUtils.toast(requireContext(), loginResponseModel?.oauthToken)
                                     val action = LoginFragmentDirections.actionLoginScreenToDashboardScreen()
                                     Navigation.findNavController(binding.root).navigate(action)
 
-                                } else {
+                                /*} else {
                                     CommonUtils.toast(requireContext(), json.getString("message"))
-                                }
+                                }*/
 //
                             }
                             StatusCalled.ERROR -> {

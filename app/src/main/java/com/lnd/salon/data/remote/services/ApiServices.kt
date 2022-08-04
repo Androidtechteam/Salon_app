@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface ApiServices {
     @Keep
-    @POST("/users/signin")
+    @POST("users/signin")
     suspend fun verifyLogin(@Body requestBody: RequestBody?): Response<ResponseBody>
 
     @Keep

@@ -47,10 +47,10 @@ class NetworkModule {
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val baseUrl = if (BuildConfig.DEBUG) {
             //live url
-            "http://54.215.201.217:8089/api"
+            "http://54.215.201.217:8089/api/"
         } else {
             //Staging Url
-            "http://54.215.201.217:8089/api"
+            "http://54.215.201.217:8089/api/"
         }
 
         return Retrofit.Builder()
