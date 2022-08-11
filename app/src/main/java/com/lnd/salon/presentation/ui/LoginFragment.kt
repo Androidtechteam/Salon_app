@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -76,10 +77,9 @@ class LoginFragment : Fragment() {
                                 )
                                 val json = JSONObject(convertedInputStream)
 
-
-                                //if (!json.getString("status").equals("error", true)) {
-//                                    val jsonObject = json.getJSONObject("data")
-
+                                if(json.has("status")){
+                                    CommonUtils.toast(requireContext(),json.getString("message"))
+                                }else {
                                     val moshi = Moshi.Builder()
                                         .add(KotlinJsonAdapterFactory())
                                         .build()
@@ -90,22 +90,30 @@ class LoginFragment : Fragment() {
                                     val loginResponseModel: LoginResponseModel? =
                                         jsonAdapter.fromJson(convertedInputStream)
 
-                                    SharedPref.setApiToken(requireContext(),loginResponseModel?.oauthToken)
+                                    SharedPref.setApiToken(
+                                        requireContext(),
+                                        loginResponseModel?.oauthToken
+                                    )
 
-                                    CommonUtils.toast(requireContext(), loginResponseModel?.oauthToken)
-                                    val action = LoginFragmentDirections.actionLoginScreenToDashboardScreen()
+                                    CommonUtils.toast(
+                                        requireContext(),
+                                        loginResponseModel?.oauthToken
+                                    )
+                                    val action =
+                                        LoginFragmentDirections.actionLoginScreenToDashboardScreen()
                                     Navigation.findNavController(binding.root).navigate(action)
-
-                                /*} else {
-                                    CommonUtils.toast(requireContext(), json.getString("message"))
-                                }*/
+                                }
 //
                             }
                             StatusCalled.ERROR -> {
-                                CommonUtils.toast(requireContext(), it.message)
+                                val json = JSONObject(it.message?:"")
+
+
+                                CommonUtils.toast(requireContext(), json.getString("message"))
 
                             }
                             StatusCalled.LOADING -> {
+
                                 CommonUtils.toast(requireContext(), "Loading...")
                             }
                         }
