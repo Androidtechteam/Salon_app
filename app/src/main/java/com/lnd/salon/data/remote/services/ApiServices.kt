@@ -16,7 +16,7 @@ interface ApiServices {
     suspend fun verifyLogin(@Body requestBody: RequestBody?): Response<ResponseBody>
 
     @Keep
-    @POST("/users")
+    @POST("users")
     suspend fun registration(@Body requestBody: RequestBody?): Response<ResponseBody>
 
     @Keep
@@ -24,27 +24,27 @@ interface ApiServices {
     suspend fun categories(): Response<CategoriesResponseModel>
 
     @Keep
-    @GET("/services")
+    @GET("services")
     suspend fun services(
         @Query("page") page: String,
         @Query("size") size: String
     ): Response<ResponseBody>
 
     @Keep
-    @GET("/branches")
+    @GET("branches")
     suspend fun branches(
         @Query("page") page: String,
         @Query("size") size: String
     ): Response<ResponseBody>
 
     @Keep
-    @GET("/coupons")
+    @GET("coupons")
     suspend fun coupons(
         @Query("page") page: String,
         @Query("size") size: String
     ): Response<ResponseBody>
 
     @Keep
-    @GET("/beauty-tips")
+    @GET("beauty-tips")
     suspend fun beautyTips(): Response<ResponseBody>
 }

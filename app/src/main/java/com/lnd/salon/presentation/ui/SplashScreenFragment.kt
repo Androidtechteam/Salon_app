@@ -1,5 +1,6 @@
 package com.lnd.salon.presentation.ui
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.lnd.salon.databinding.FragmentSplashScreenBinding
+import com.lnd.salon.presentation.common.SharedPref
 
 class SplashScreenFragment : Fragment() {
 
@@ -21,8 +23,15 @@ class SplashScreenFragment : Fragment() {
         binding = FragmentSplashScreenBinding.inflate(layoutInflater)
 
         Handler().postDelayed({
-            val action = SplashScreenFragmentDirections.actionSplashScreenToLoginScreen()
-            Navigation.findNavController(binding.root).navigate(action)
+
+            if(SharedPref.getApiToken() != ""){
+                val action = SplashScreenFragmentDirections.actionSplashScreenToDashboardScreen()
+                Navigation.findNavController(binding.root).navigate(action)
+            }else{
+                val action = SplashScreenFragmentDirections.actionSplashScreenToLoginScreen()
+                Navigation.findNavController(binding.root).navigate(action)
+            }
+
         }, SPLASH_DISPLAY_LENGTH.toLong())
 
         return binding.root
