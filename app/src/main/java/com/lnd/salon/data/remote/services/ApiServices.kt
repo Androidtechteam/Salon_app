@@ -20,7 +20,7 @@ interface ApiServices {
     suspend fun registration(@Body requestBody: RequestBody?): Response<ResponseBody>
 
     @Keep
-    @GET("/categories")
+    @GET("categories")
     suspend fun categories(): Response<CategoriesResponseModel>
 
     @Keep
