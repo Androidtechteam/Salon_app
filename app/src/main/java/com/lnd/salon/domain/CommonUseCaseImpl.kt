@@ -1,6 +1,9 @@
 package com.lnd.salon.domain
 
 import com.lnd.salon.data.repository.CommonRepository
+import com.lnd.salon.presentation.common.Resource
+import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import kotlinx.coroutines.flow.Flow
 import okhttp3.RequestBody
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -23,7 +26,7 @@ class CommonUseCaseImpl @Inject constructor(private val commonRepository: Common
     override suspend fun coupons(page: String, count: String) =
         commonRepository.branches(page, count)
 
-    override suspend fun categories() =
+    override suspend fun categories(): Flow<Resource<CategoriesResponseModel>> =
         commonRepository.categories()
 
     override suspend fun beautyTips() =

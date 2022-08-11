@@ -1,6 +1,7 @@
 package com.lnd.salon.data.remote.services
 
 import androidx.annotation.Keep
+import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -20,7 +21,7 @@ interface ApiServices {
 
     @Keep
     @GET("/categories")
-    suspend fun categories(): Response<ResponseBody>
+    suspend fun categories(): Response<CategoriesResponseModel>
 
     @Keep
     @GET("/services")

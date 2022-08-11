@@ -1,6 +1,7 @@
 package com.lnd.salon.data.remote.source
 
 import com.lnd.salon.data.remote.services.ApiServices
+import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import javax.inject.Inject
@@ -74,7 +75,7 @@ class CommonRemoteDataSourceImpl @Inject constructor(private val apiServices: Ap
         }
     }
 
-    override suspend fun categories(): ResponseBody {
+    override suspend fun categories(): CategoriesResponseModel {
         try{
             val responseBody = apiServices.categories()
             return if(responseBody.isSuccessful){

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lnd.salon.domain.CommonUseCase
 import com.lnd.salon.presentation.common.Resource
+import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCase) : ViewModel(){
     lateinit var response: Flow<Resource<ResponseBody>>
+    lateinit var categoriesResponse: Flow<Resource<CategoriesResponseModel>>
 
     fun getLoginResponse(requestBody: RequestBody) {
         viewModelScope.launch {
@@ -29,7 +31,7 @@ class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCa
 
     fun categories(){
         viewModelScope.launch {
-            response = commonUseCase.categories()
+            categoriesResponse = commonUseCase.categories()
         }
     }
 

@@ -1,5 +1,6 @@
 package com.lnd.salon.data.remote.source
 
+import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 
@@ -15,7 +16,7 @@ interface CommonRemoteDataSource {
 
     suspend fun coupons(page: String, count: String): ResponseBody
 
-    suspend fun categories():ResponseBody
+    suspend fun categories(): CategoriesResponseModel
 
     suspend fun beautyTips():ResponseBody
 }
