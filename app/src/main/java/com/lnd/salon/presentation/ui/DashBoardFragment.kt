@@ -11,11 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnd.salon.adapter.CategoriesAdapter
 import com.lnd.salon.databinding.FragmentDashBoardBinding
+import com.lnd.salon.presentation.common.CommonUtils
 import com.lnd.salon.presentation.common.StatusCalled
 import com.lnd.salon.presentation.viewmodel.CommonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 @AndroidEntryPoint
 class DashBoardFragment : Fragment() {
@@ -58,19 +60,20 @@ class DashBoardFragment : Fragment() {
     private fun observeCategoriesResponse(){
         try{
             lifecycleScope.launch{
-                viewModel.response.catch {
+                viewModel.categoriesResponse.catch {
 
                 }.flowWithLifecycle(lifecycle)
                     .collect{
                         when(it.status){
                             StatusCalled.SUCCESS ->{
-//                                categoriesAdapter.setData(i)
+                                it.data?.let { it1 -> categoriesAdapter.setData(it1) }
                             }
                             StatusCalled.ERROR ->{
-
+                                val json = JSONObject(it.message?:"")
+                                CommonUtils.toast(requireContext(), json.getString("message"))
                             }
                             StatusCalled.LOADING ->{
-
+                                CommonUtils.toast(requireContext(), "Loading...")
                             }
 
                         }

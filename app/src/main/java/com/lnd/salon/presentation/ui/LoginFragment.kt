@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -67,7 +68,7 @@ class LoginFragment : Fragment() {
             lifecycleScope.launch {
                 viewModel.response.catch {
 
-                }.flowWithLifecycle(lifecycle)
+                }.flowWithLifecycle(lifecycle, Lifecycle.State.CREATED)
                     .collect {
                         when (it.status) {
                             StatusCalled.SUCCESS -> {
