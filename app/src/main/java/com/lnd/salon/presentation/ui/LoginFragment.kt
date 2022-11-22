@@ -78,7 +78,7 @@ class LoginFragment : Fragment() {
                                 )
                                 val json = JSONObject(convertedInputStream)
 
-                                if(json.has("status")){
+                                if(!json.getString("status").equals("200")){
                                     CommonUtils.toast(requireContext(),json.getString("message"))
                                 }else {
                                     val moshi = Moshi.Builder()
@@ -89,7 +89,7 @@ class LoginFragment : Fragment() {
                                         moshi.adapter(LoginResponseModel::class.java)
 
                                     val loginResponseModel: LoginResponseModel? =
-                                        jsonAdapter.fromJson(convertedInputStream)
+                                        jsonAdapter.fromJson(json.getJSONObject("data").toString())
 
                                     SharedPref.setApiToken(
                                         requireContext(),

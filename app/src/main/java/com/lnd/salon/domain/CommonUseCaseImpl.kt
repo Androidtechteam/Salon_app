@@ -2,6 +2,7 @@ package com.lnd.salon.domain
 
 import com.lnd.salon.data.repository.CommonRepository
 import com.lnd.salon.presentation.common.Resource
+import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import kotlinx.coroutines.flow.Flow
 import okhttp3.RequestBody
@@ -20,11 +21,11 @@ class CommonUseCaseImpl @Inject constructor(private val commonRepository: Common
     override suspend fun services(page: String, count: String) =
         commonRepository.services(page, count)
 
-    override suspend fun branches(page: String, count: String) =
+    override suspend fun branches(page: String, count: String): Flow<Resource<BranchesResponseModel>> =
         commonRepository.branches(page, count)
 
     override suspend fun coupons(page: String, count: String) =
-        commonRepository.branches(page, count)
+        commonRepository.coupons(page, count)
 
     override suspend fun categories(): Flow<Resource<CategoriesResponseModel>> =
         commonRepository.categories()

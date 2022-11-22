@@ -2,20 +2,31 @@ package com.lnd.salon.presentation.models.Categories
 
 
 import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 data class CategoriesResponseModelItem(
-    @SerializedName("catGuid")
+    @Json(name = "catGuid")
     var catGuid: String,
-    @SerializedName("catId")
+    @Json(name = "catId")
     var catId: Int,
-    @SerializedName("catImg")
-    var catImg: Any,
-    @SerializedName("categoryName")
+    @Json(name = "catImg")
+    var catImg: String,
+    @Json(name = "categoryName")
     var categoryName: String,
-    @SerializedName("createdDate")
-    var createdDate: Any,
-    @SerializedName("modifiedDate")
-    var modifiedDate: Any,
-    @SerializedName("recStatus")
+    @Json(name = "contentType")
+    var contentType: String,
+    @Json(name = "createdBy")
+    var createdBy: String,
+    @Json(name = "creationDate")
+    var creationDate: String,
+    @Json(name = "encodedImage")
+    var encodedImage: Any,
+    @Json(name = "imageName")
+    var imageName: String,
+    @Json(name = "lastModifiedBy")
+    var lastModifiedBy: String,
+    @Json(name = "lastModifiedDate")
+    var lastModifiedDate: String,
+    @Json(name = "recStatus")
     var recStatus: Int
 )

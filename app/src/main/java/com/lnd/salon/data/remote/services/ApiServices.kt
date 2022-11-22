@@ -1,6 +1,7 @@
 package com.lnd.salon.data.remote.services
 
 import androidx.annotation.Keep
+import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -35,7 +36,7 @@ interface ApiServices {
     suspend fun branches(
         @Query("page") page: String,
         @Query("size") size: String
-    ): Response<ResponseBody>
+    ): Response<BranchesResponseModel>
 
     @Keep
     @GET("coupons")

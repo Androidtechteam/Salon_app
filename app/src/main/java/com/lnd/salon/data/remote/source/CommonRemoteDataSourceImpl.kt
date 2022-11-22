@@ -1,6 +1,7 @@
 package com.lnd.salon.data.remote.source
 
 import com.lnd.salon.data.remote.services.ApiServices
+import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -49,7 +50,7 @@ class CommonRemoteDataSourceImpl @Inject constructor(private val apiServices: Ap
         }
     }
 
-    override suspend fun branches(page: String, count: String): ResponseBody {
+    override suspend fun branches(page: String, count: String): BranchesResponseModel {
         try {
             val responseBody = apiServices.branches(page, count)
             return if (responseBody.isSuccessful) {

@@ -60,7 +60,7 @@ class CommonRepositoryImpl @Inject constructor(private val commonRemoteDataSourc
         flow {
             emit(Resource.loading(null))
             try {
-                val data = commonRemoteDataSource.branches(page, count)
+                val data = commonRemoteDataSource.coupons(page, count)
                 emit(Resource.success(data))
             } catch (ex: Exception) {
                 emit(Resource.error(ex.message ?: "", null))

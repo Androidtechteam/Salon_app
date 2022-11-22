@@ -42,14 +42,15 @@
         app:layout_constraintStart_toEndOf="@+id/im_shop_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <RatingBar
+        style="@style/Widget.AppCompat.RatingBar.Small"
         android:id="@+id/im_star"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_star_rate_24"
+        android:rating="5"
         app:layout_constraintStart_toEndOf="@+id/im_shop_item"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"
-        android:layout_margin="@dimen/_5sdp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_ratting"
@@ -85,13 +86,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_location_on_24"
-        app:layout_constraintStart_toEndOf="@+id/tv_dummy"
+        android:layout_marginEnd="@dimen/_50sdp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_kilometer"
         app:layout_constraintTop_toBottomOf="@+id/tv_address"
         android:layout_margin="@dimen/_5sdp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_kilometer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:textSize="@dimen/_14sdp"
@@ -100,22 +102,10 @@
         android:text="15 Km"
         android:gravity="center"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/im_location"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_25sdp"
-        android:background="@drawable/my_button"
-        android:text="Book"
-        android:textSize="@dimen/_12sdp"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:fontFamily="@font/poppins_regular"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/_5sdp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
