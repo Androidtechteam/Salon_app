@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/im_toolbar_back"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                tools:ignore="ContentDescription" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_ToolbarText"
+                style="@style/screen_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_74sdp"
+                android:gravity="start"
+                android:text="@string/app_name"
+                android:textAllCaps="false"
+                tools:text="User Dashboard" />
+
+            <FrameLayout
+                android:id="@+id/imgToolbarNotification"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end|center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_notification"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/bell"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/notification_count_text"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:background="@drawable/dashboard_badge"
+                    android:ellipsize="none"
+                    android:gravity="center"
+                    android:maxWidth="@dimen/_35sdp"
+                    android:minWidth="@dimen/_20sdp"
+                    android:minHeight="@dimen/_20sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:text="0" />
+            </FrameLayout>
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

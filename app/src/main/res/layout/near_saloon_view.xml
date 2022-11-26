@@ -1,130 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/edit_text_background"
-    android:layout_margin="@dimen/_3sdp">
+    android:layout_margin="@dimen/_3sdp"
+    android:background="@drawable/edit_text_background">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cc_view"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_90sdp"
+        app:cardCornerRadius="@dimen/_3sdp"
         app:cardElevation="3dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="@dimen/_3sdp">
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/im_shop_item"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_90sdp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:background="@drawable/edit_text_background"
-        android:padding="@dimen/_3sdp"/>
-
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/im_shop_item"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:background="@drawable/edit_text_background"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_shop_name"
+        style="@style/view_top_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jack Salon"
-        style="@style/view_top_name"
         android:layout_margin="@dimen/_3sdp"
         android:fontFamily="@font/poppins_bold"
+        android:text="Dummy Salon"
+        android:lines="2"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/cc_view"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_address"
+        style="@style/address_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:fontFamily="@font/poppins_regular"
-        style="@style/address_view"
         android:layout_margin="@dimen/_3sdp"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="1"
         android:text="6391 Elgin St.Cellna,Delaware"
         android:textColor="@color/grayy"
         app:layout_constraintStart_toEndOf="@+id/cc_view"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/im_star"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
         android:src="@drawable/ic_baseline_star_rate_24"
         app:layout_constraintStart_toEndOf="@+id/cc_view"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"
-        android:layout_margin="@dimen/_5sdp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_ratting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textSize="@dimen/_14sdp"
-        android:fontFamily="@font/poppins_regular"
         android:layout_margin="@dimen/_5sdp"
-        android:text="5.1"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
+        android:maxLines="1"
+        android:text="5.1"
         android:textColor="@color/orange"
+        style="@style/small_text"
         app:layout_constraintStart_toEndOf="@+id/im_star"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_dummy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
         android:fontFamily="@font/poppins_regular"
-        android:text="5"
         android:gravity="center"
-        android:visibility="invisible"
+        android:maxLines="1"
+        android:text="5"
         android:textColor="@color/orange"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/tv_ratting"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/im_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
         android:src="@drawable/ic_baseline_location_on_24"
         app:layout_constraintStart_toEndOf="@+id/tv_dummy"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"
-        android:layout_margin="@dimen/_5sdp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_kilometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textSize="@dimen/_14sdp"
-        android:fontFamily="@font/poppins_regular"
         android:layout_margin="@dimen/_5sdp"
-        android:text="15 Km"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
+        android:maxLines="1"
+        android:text="15 Km"
+        style="@style/small_text"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/im_location"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_23sdp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/my_button"
-        android:text="Book"
-        android:textSize="@dimen/_12sdp"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
         android:fontFamily="@font/poppins_regular"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address"
+        android:text="Book"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/_5sdp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

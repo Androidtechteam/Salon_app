@@ -3,6 +3,8 @@ package com.lnd.salon.data.remote.source
 import com.lnd.salon.data.remote.services.ApiServices
 import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import javax.inject.Inject
@@ -94,6 +96,32 @@ class CommonRemoteDataSourceImpl @Inject constructor(private val apiServices: Ap
             val responseBody = apiServices.beautyTips()
             return if(responseBody.isSuccessful){
                 responseBody.body() ?: throw Exception("No data found")
+            }else{
+                throw Exception(responseBody.errorBody()?.string())
+            }
+        }catch (ex:Exception){
+            throw Exception(ex.localizedMessage)
+        }
+    }
+
+    override suspend fun nearBySaloons(): NearBySaloon {
+        try{
+            val responseBody = apiServices.nearBySaloons()
+            return if(responseBody.isSuccessful){
+                responseBody.body() ?: throw Exception("No data found")
+            }else{
+                throw Exception(responseBody.errorBody()?.string())
+            }
+        }catch (ex:Exception){
+            throw Exception(ex.localizedMessage)
+        }
+    }
+
+    override suspend fun saloonSummary(id:String): SaloonDetailsModel {
+        try{
+            val responseBody = apiServices.saloonSummary(id)
+            return if(responseBody.isSuccessful){
+                responseBody.body()?:throw Exception("No data found")
             }else{
                 throw Exception(responseBody.errorBody()?.string())
             }

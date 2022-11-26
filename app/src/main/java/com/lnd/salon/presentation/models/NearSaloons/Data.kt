@@ -1,0 +1,32 @@
+package com.lnd.salon.presentation.models.NearSaloons
+
+data class Data(
+    val address1: String,
+    val address2: Any,
+    val bankAccountNumber: Int,
+    val bankName: String,
+    val city: String,
+    val contentType: Any,
+    val country: String,
+    val createdBy: Any,
+    val creationDate: String,
+    val employees: Any,
+    val encodedImage: Any,
+    val gstNum: Any,
+    val havingBranches: Boolean,
+    val ifscCode: String,
+    val imageName: Any,
+    val lastModifiedBy: Any,
+    val lastModifiedDate: String,
+    val lattitude: String,
+    val longitude: String,
+    val name: String,
+    val onBoarededDate: Any,
+    val packages: List<Int>,
+    val saloonId: Int,
+    val saloonImg: Any,
+    val services: List<Int>,
+    val state: String,
+    val status: Any,
+    val tanNumber: String
+)

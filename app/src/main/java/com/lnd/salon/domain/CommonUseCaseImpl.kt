@@ -4,6 +4,8 @@ import com.lnd.salon.data.repository.CommonRepository
 import com.lnd.salon.presentation.common.Resource
 import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import kotlinx.coroutines.flow.Flow
 import okhttp3.RequestBody
 import javax.inject.Inject
@@ -32,4 +34,10 @@ class CommonUseCaseImpl @Inject constructor(private val commonRepository: Common
 
     override suspend fun beautyTips() =
         commonRepository.beautyTips()
+
+    override suspend fun nearBySaloons(): Flow<Resource<NearBySaloon>> =
+        commonRepository.nearBySaloons()
+
+    override suspend fun saloonSummary(id:String): Flow<Resource<SaloonDetailsModel>> =
+        commonRepository.saloonSummary(id)
 }

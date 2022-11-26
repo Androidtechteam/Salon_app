@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lnd.salon.adapter.BranchesAdapter
 import com.lnd.salon.adapter.CategoriesAdapter
@@ -41,6 +42,11 @@ class DashBoardFragment : Fragment() {
         binding.rvServices.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding.rvNearSalon.adapter = branchesAdapter
         binding.rvNearSalon.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
+        binding.tvViewAll.setOnClickListener{
+            val action = DashBoardFragmentDirections.actionDashboardScreenToViewAllSalonFragment()
+            Navigation.findNavController(binding.root).navigate(action)
+        }
 
         getCategories()
         getbraches()

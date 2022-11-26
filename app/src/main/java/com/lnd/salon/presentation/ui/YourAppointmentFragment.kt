@@ -17,7 +17,7 @@ class YourAppointmentFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentYourAppointmentBinding.inflate(layoutInflater,container,false)
         return binding.root
     }

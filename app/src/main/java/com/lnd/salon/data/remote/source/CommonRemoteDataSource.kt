@@ -2,6 +2,8 @@ package com.lnd.salon.data.remote.source
 
 import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 
@@ -20,4 +22,8 @@ interface CommonRemoteDataSource {
     suspend fun categories(): CategoriesResponseModel
 
     suspend fun beautyTips():ResponseBody
+
+    suspend fun nearBySaloons(): NearBySaloon
+
+    suspend fun saloonSummary(id:String): SaloonDetailsModel
 }

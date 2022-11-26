@@ -3,6 +3,8 @@ package com.lnd.salon.data.repository
 import com.lnd.salon.data.remote.source.CommonRemoteDataSource
 import com.lnd.salon.presentation.common.Resource
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okhttp3.RequestBody
@@ -88,4 +90,25 @@ class CommonRepositoryImpl @Inject constructor(private val commonRemoteDataSourc
                 emit(Resource.error(ex.message ?: "",null))
             }
         }
+
+    override suspend fun nearBySaloons():Flow<Resource<NearBySaloon>> =
+        flow {
+            emit(Resource.loading(null))
+            try{
+                val data = commonRemoteDataSource.nearBySaloons()
+                emit(Resource.success(data))
+            }catch (ex:Exception){
+                emit(Resource.error(ex.message?:"",null))
+            }
+        }
+
+    override suspend fun saloonSummary(id: String): Flow<Resource<SaloonDetailsModel>> =
+    flow {
+        emit(Resource.loading(null))
+        try{
+            val data = commonRemoteDataSource.saloonSummary(id)
+        }catch (ex:Exception){
+            emit(Resource.error(ex.message?:"",null))
+        }
+    }
 }

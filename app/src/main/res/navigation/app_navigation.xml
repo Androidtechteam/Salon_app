@@ -38,8 +38,8 @@
     <fragment
         android:id="@+id/signup_screen"
         android:name="com.lnd.salon.presentation.ui.SignUpFragment"
-        tools:layout="@layout/fragment_sign_up"
-        android:label="Signup screen">
+        android:label="Signup screen"
+        tools:layout="@layout/fragment_sign_up">
 
         <action
             android:id="@+id/action_signup_screen_to_dashboard_screen"
@@ -62,14 +62,17 @@
         <action
             android:id="@+id/action_dashboard_screen_to_your_appointment"
             app:destination="@id/appointment_fragment" />
+        <action
+            android:id="@+id/action_dashboard_screen_to_view_all_salon_fragment"
+            app:destination="@id/view_all_salon_fragment" />
     </fragment>
 
 
     <fragment
         android:id="@+id/search_salon_fragment"
         android:name="com.lnd.salon.presentation.ui.SearchFragment"
-        tools:layout="@layout/fragment_search"
-        android:label="Search Screen">
+        android:label="Search Screen"
+        tools:layout="@layout/fragment_search">
 
 
     </fragment>
@@ -77,12 +80,36 @@
     <fragment
         android:id="@+id/appointment_fragment"
         android:name="com.lnd.salon.presentation.ui.YourAppointmentFragment"
-        tools:layout="@layout/fragment_your_appointment"
-        android:label="Your Fragment">
+        android:label="Your Fragment"
+        tools:layout="@layout/fragment_your_appointment">
 
 
     </fragment>
 
+    <fragment
+        android:id="@+id/view_all_salon_fragment"
+        android:name="com.lnd.salon.presentation.ui.ViewAllSalonsFragment"
+        android:label="Near By Salons"
+        tools:layout="@layout/fragment_view_all_salons">
+
+
+        <action
+            android:id="@+id/action_view_all_salon_fragment_to_salon_details_fragment"
+            app:destination="@id/salon_details_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/salon_details_fragment"
+        android:name="com.lnd.salon.presentation.ui.SalonDetailsFragment"
+        android:label="Salon Details"
+        tools:layout="@layout/fragment_salon_details">
+
+        <argument
+            android:name="saloonId"
+            android:defaultValue="0"
+            app:argType="string" />
+
+    </fragment>
 
 
 </navigation>

@@ -6,6 +6,8 @@ import com.lnd.salon.domain.CommonUseCase
 import com.lnd.salon.presentation.common.Resource
 import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -18,6 +20,8 @@ class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCa
     lateinit var response: Flow<Resource<ResponseBody>>
     lateinit var categoriesResponse: Flow<Resource<CategoriesResponseModel>>
     lateinit var branchesResponse: Flow<Resource<BranchesResponseModel>>
+    lateinit var saloonResponse: Flow<Resource<NearBySaloon>>
+    lateinit var saloonDetailsResponse: Flow<Resource<SaloonDetailsModel>>
 
     fun getLoginResponse(requestBody: RequestBody) {
         viewModelScope.launch {
@@ -52,6 +56,18 @@ class CommonViewModel @Inject constructor(private val commonUseCase: CommonUseCa
     fun beautyTips(){
         viewModelScope.launch {
             response = commonUseCase.beautyTips()
+        }
+    }
+
+    fun nearBySaloons(){
+        viewModelScope.launch {
+            saloonResponse = commonUseCase.nearBySaloons()
+        }
+    }
+
+    fun saloonSummary(id:String){
+        viewModelScope.launch {
+            saloonDetailsResponse = commonUseCase.saloonSummary(id)
         }
     }
 

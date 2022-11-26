@@ -3,6 +3,8 @@ package com.lnd.salon.domain
 import com.lnd.salon.presentation.common.Resource
 import com.lnd.salon.presentation.models.Branches.BranchesResponseModel
 import com.lnd.salon.presentation.models.Categories.CategoriesResponseModel
+import com.lnd.salon.presentation.models.NearSaloons.NearBySaloon
+import com.lnd.salon.presentation.models.SaloonDetails.SaloonDetailsModel
 import kotlinx.coroutines.flow.Flow
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -21,4 +23,8 @@ interface CommonUseCase {
     suspend fun categories():Flow<Resource<CategoriesResponseModel>>
 
     suspend fun beautyTips():Flow<Resource<ResponseBody>>
+
+    suspend fun nearBySaloons():Flow<Resource<NearBySaloon>>
+
+    suspend fun saloonSummary(id:String):Flow<Resource<SaloonDetailsModel>>
 }

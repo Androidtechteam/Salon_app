@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="2dp"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardUseCompatPadding="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emp_image"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emp_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12sdp"
+            android:lines="2"
+            android:textColor="@color/black"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
