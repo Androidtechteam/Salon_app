@@ -107,6 +107,7 @@ class CommonRepositoryImpl @Inject constructor(private val commonRemoteDataSourc
         emit(Resource.loading(null))
         try{
             val data = commonRemoteDataSource.saloonSummary(id)
+            emit(Resource.success(data))
         }catch (ex:Exception){
             emit(Resource.error(ex.message?:"",null))
         }

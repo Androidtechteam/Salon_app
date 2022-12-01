@@ -10,8 +10,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lnd.salon.R
 import com.lnd.salon.adapter.SaloonDetailsAdapter
+import com.lnd.salon.adapter.SaloonPackagesAdapter
 import com.lnd.salon.databinding.FragmentSalonDetailsBinding
 import com.lnd.salon.presentation.common.CommonUtils
 import com.lnd.salon.presentation.common.StatusCalled
@@ -27,6 +27,8 @@ class SalonDetailsFragment : Fragment() {
     private val viewModel: CommonViewModel by viewModels()
     lateinit var binding: FragmentSalonDetailsBinding
     lateinit var saloonDetailsAdapter: SaloonDetailsAdapter
+    lateinit var packagesAdapter: SaloonPackagesAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,15 +36,28 @@ class SalonDetailsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentSalonDetailsBinding.inflate(layoutInflater)
-        saloonDetailsAdapter = SaloonDetailsAdapter(requireContext(),object : SaloonDetailsAdapter.ItemClickListener{
-            override fun onItemClick(view: View?, position: Int) {
+        saloonDetailsAdapter =
+            SaloonDetailsAdapter(requireContext(), object : SaloonDetailsAdapter.ItemClickListener {
+                override fun onItemClick(view: View?, position: Int) {
 
-            }
-
-        })
+                }
+            })
         binding.rvSpecialists.adapter = saloonDetailsAdapter
-        binding.rvSpecialists.layoutManager = LinearLayoutManager(requireContext(),
-            LinearLayoutManager.HORIZONTAL,false)
+        binding.rvSpecialists.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL, false
+        )
+
+        packagesAdapter = SaloonPackagesAdapter(requireContext(), object : SaloonPackagesAdapter.ItemClickListener {
+            override fun onItemClick(view: View?, position: Int, saloonId: Int) {
+                CommonUtils.toast(requireContext(), "Package Clicked")
+            }
+        })
+        binding.rvCati.adapter = packagesAdapter
+        binding.rvCati.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL, false
+        )
 
 
         binding.inHeader.imToolbarBack.setOnClickListener {
@@ -50,7 +65,7 @@ class SalonDetailsFragment : Fragment() {
         }
         binding.inHeader.tvToolbarText.text = "Saloon Details"
         if (arguments != null) {
-            arguments?.getString("saloonId","0")?.let { viewModel.saloonSummary("-100") }
+            arguments?.getString("saloonId", "0")?.let { viewModel.saloonSummary("-100") }
             observeSaloonDetails()
         }
         return binding.root
@@ -65,7 +80,10 @@ class SalonDetailsFragment : Fragment() {
                     .collect {
                         when (it.status) {
                             StatusCalled.SUCCESS -> {
-                                it.data?.let { it1 -> saloonDetailsAdapter.setData(it1.data.emlpoyees)}
+                                it.data?.let { it1 ->
+                                    saloonDetailsAdapter.setData(it1.data.emlpoyees)
+                                    packagesAdapter.setData(it1.data.packages)
+                                }
                             }
                             StatusCalled.ERROR -> {
                                 val json = JSONObject(it.message ?: "")
